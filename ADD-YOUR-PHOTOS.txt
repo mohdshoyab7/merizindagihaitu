@@ -1,0 +1,12 @@
+ADD YOUR THREE PHOTOS
+
+Copy your own image files into this folder and name them exactly:
+  photos/img1.jpeg
+  photos/img2.jpeg
+  photos/img3.jpeg
+
+The website reuses these three images on the welcome, five question, proposal, and celebration screens.
+Keep the photos folder beside index.html, style.css, and script.js.
+
+The actual photos from your Mac were not attached to this chat, so they are not embedded in this ZIP.
+After copying them in, open index.html in your browser to test. For sharing, upload the entire folder to Netlify (not just index.html).
