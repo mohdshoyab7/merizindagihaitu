@@ -34,17 +34,19 @@ const pagePhotos = [
 // }
 
 
+// Background Music
 const music = document.getElementById("backgroundMusic");
 
-window.addEventListener("load", async () => {
-    try {
-        music.currentTime = 0;
-        await music.play();
-        console.log("Music started ❤️");
-    } catch (error) {
-        console.log("Autoplay blocked. Waiting for user interaction.");
-    }
-});
+function startMusic() {
+    if (!music) return;
+
+    music.volume = 0.8;
+    music.currentTime = 0;
+
+    music.play().catch(error => {
+        console.log("Music playback blocked:", error);
+    });
+}
 
 
 
