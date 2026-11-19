@@ -39,27 +39,40 @@ const pagePhotos = [
 const soundcloudMusic = document.getElementById('soundcloudMusic');
 const widget = SC.Widget(soundcloudMusic);
 
-let musicStarted = false;
 let widgetReady = false;
+let musicStarted = false;
+let startRequested = false;
 
 widget.bind(SC.Widget.Events.READY, () => {
   widgetReady = true;
+
+  if (startRequested) {
+    playMusic();
+  }
 });
 
-function startMusic() {
-  if (musicStarted || !widgetReady) return;
+function playMusic() {
+  if (!widgetReady || musicStarted) return;
 
   musicStarted = true;
 
   widget.seekTo(36000);
+
   widget.play();
+}
+
+function startMusic() {
+  startRequested = true;
+
+  if (widgetReady) {
+    playMusic();
+  }
 }
 
 document.getElementById('startButton').addEventListener('click', () => {
   startMusic();
   showQuestion();
 });
-
 
 
 
