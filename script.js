@@ -35,16 +35,20 @@ const pagePhotos = [
 
 
 // Background Music
-const music = document.getElementById("backgroundMusic");
+const music = document.getElementById('backgroundMusic');
 
 function startMusic() {
-    if (!music) return;
+    if (!music) {
+        console.error("Audio element not found!");
+        return;
+    }
 
     music.volume = 0.8;
-    music.currentTime = 0;
 
-    music.play().catch(error => {
-        console.log("Music playback blocked:", error);
+    music.play().then(() => {
+        console.log("Music playing ❤️");
+    }).catch(error => {
+        console.error("Music error:", error);
     });
 }
 
@@ -214,7 +218,11 @@ function showCelebration() {
   }
 }
 
-document.getElementById('startButton').addEventListener('click', () => {
-  startMusic();
-  showQuestion();
+const startButton = document.getElementById('startButton');
+
+startButton.addEventListener('click', () => {
+    console.log("Start button clicked!");
+
+    startMusic();
+    showQuestion();
 });
