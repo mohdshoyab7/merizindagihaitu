@@ -34,44 +34,16 @@ const pagePhotos = [
 // }
 
 
-// SoundCloud Music Player
+const music = document.getElementById("backgroundMusic");
 
-const soundcloudMusic = document.getElementById('soundcloudMusic');
-const widget = SC.Widget(soundcloudMusic);
-
-let widgetReady = false;
-let musicStarted = false;
-let startRequested = false;
-
-widget.bind(SC.Widget.Events.READY, () => {
-  widgetReady = true;
-
-  if (startRequested) {
-    playMusic();
-  }
-});
-
-function playMusic() {
-  if (!widgetReady || musicStarted) return;
-
-  musicStarted = true;
-
-  widget.seekTo(36000);
-
-  widget.play();
-}
-
-function startMusic() {
-  startRequested = true;
-
-  if (widgetReady) {
-    playMusic();
-  }
-}
-
-document.getElementById('startButton').addEventListener('click', () => {
-  startMusic();
-  showQuestion();
+window.addEventListener("load", async () => {
+    try {
+        music.currentTime = 0;
+        await music.play();
+        console.log("Music started ❤️");
+    } catch (error) {
+        console.log("Autoplay blocked. Waiting for user interaction.");
+    }
 });
 
 

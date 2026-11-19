@@ -80,32 +80,4 @@ footer span { color: var(--rose); padding-left: 5px; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
-/* 
-.youtube-music {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  width: 300px;
-  max-width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-}
-
-.youtube-music iframe {
-  display: block;
-  width: 300px;
-  height: 200px;
-  max-width: 100%;
-  border: none;
-  border-radius: 14px;
-} */
- .soundcloud-music {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
 
