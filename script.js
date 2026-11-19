@@ -40,9 +40,14 @@ const soundcloudMusic = document.getElementById('soundcloudMusic');
 const widget = SC.Widget(soundcloudMusic);
 
 let musicStarted = false;
+let widgetReady = false;
+
+widget.bind(SC.Widget.Events.READY, () => {
+  widgetReady = true;
+});
 
 function startMusic() {
-  if (musicStarted) return;
+  if (musicStarted || !widgetReady) return;
 
   musicStarted = true;
 
@@ -50,9 +55,9 @@ function startMusic() {
   widget.play();
 }
 
-// Try autoplay as soon as the website loads
-widget.bind(SC.Widget.Events.READY, () => {
+document.getElementById('startButton').addEventListener('click', () => {
   startMusic();
+  showQuestion();
 });
 
 
